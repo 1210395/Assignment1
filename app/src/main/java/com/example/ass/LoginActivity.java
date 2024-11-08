@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         users=new ArrayList<User>();
         fillUserList();
-        findViewById(R.id.loginButton).setBackgroundColor(R.color.primaryColor);
+        findViewById(R.id.loginButton).setBackgroundColor(R.color.primaryDarkColor);
         findViewById(R.id.loginButton).setOnClickListener(e->{
             String username=((EditText)findViewById(R.id.usernameEditText)).getText().toString().trim();
             String password=((EditText)findViewById(R.id.passwordEditText)).getText().toString().trim();

@@ -9,4 +9,7 @@
     <string name="option2">Home Exercises</string>
     <string name="option3">Street Exercises</string>
     <string name="logoutButton">Log out</string>
+    <string name="backMethodsAcitivty">Back</string>
+    <string name="placeholderEditTextMethodsActivity">PlaceHolder</string>
+    <string name="confirmButtonMainActivity">Confirm</string>
 </resources>
