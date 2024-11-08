@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Ass</string>
+    <string name="loginActivityImageDescription">Logo</string>
+    <string name="loginActivityEditTextUsernameHint">Username</string>
+    <string name="loginActivityEditTextPasswordHint">Password</string>
+    <string name="loginActivityButtonText">Login</string>
+    <string name="radioGroupMainActivityHeader">Select an Exercise</string>
+    <string name="option1">Gym Exercises</string>
+    <string name="option2">Home Exercises</string>
+    <string name="option3">Street Exercises</string>
+    <string name="logoutButton">Log out</string>
+</resources>
