@@ -6,19 +6,15 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
-public class MethodsActivity extends AppCompatActivity {
-    private Spinner spinner;
+public class MusclesActivity extends AppCompatActivity {
     private String username,option;
-    private ArrayList<Exercise> list=new ArrayList<>();
+    private ArrayList<Muscle> list=new ArrayList<>();
     @SuppressLint({"ResourceAsColor", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,44 +23,52 @@ public class MethodsActivity extends AppCompatActivity {
          username=getIntent().getStringExtra("username");
          option=getIntent().getStringExtra("option");
         System.out.println(option);
-         spinner=findViewById(R.id.spinner);
-         fillExercises();
+        Spinner spinner = findViewById(R.id.spinner);
+         fillMuscles();
         ((TextView)findViewById(R.id.headerMethodsActivity)).setText(option);
-        ArrayAdapter<Exercise> adapter = new ArrayAdapter<Exercise>(getApplicationContext(),  android.R.layout.simple_spinner_dropdown_item, list);
+        ArrayAdapter<Muscle> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
         adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         findViewById(R.id.backToMainButton).setBackgroundColor(R.color.primaryDarkColor);
-        findViewById(R.id.backToMainButton).setOnClickListener(e->{
-            returnToMainAcitivity(username);
+        findViewById(R.id.backToMainButton).setOnClickListener(e-> returnToMainAcitivity(username));
+        findViewById(R.id.confirm_button_MethodsActivity).setOnClickListener(e->{
+            if(spinner.getSelectedItem()==null)
+                Toast.makeText(this, "Nothing select", Toast.LENGTH_SHORT);
+             else
+                startExerciseActivity(spinner.getSelectedItem().toString());
         });
 
     }
-    private void fillExercises(){
+
+private void fillMuscles(){
         list=new ArrayList<>();
         switch (option){
             case"Gym Exercises":
-                list.add(new Exercise("Bench Press", "Gym", "Chest"));
-                list.add(new Exercise("Deadlift", "Gym", "Back"));
-                list.add(new Exercise("Lat Pulldown", "Gym", "Back"));
-                list.add(new Exercise("Shoulder Press", "Gym", "Shoulders"));
-                list.add(new Exercise("Bicep Curl", "Gym", "Biceps"));
+                list.add(new Muscle("Chest"));
+                list.add(new Muscle( "Back"));
+                list.add(new Muscle("Shoulders"));
+                list.add(new Muscle( "Biceps"));
                 break;
             case"Home Exercises":
-                list.add(new Exercise("Push-Up", "Home", "Chest"));
-                list.add(new Exercise("Bodyweight Squat", "Home", "Legs"));
-                list.add(new Exercise("Crunch", "Home", "Abs"));
-                list.add(new Exercise("Plank", "Home", "Abs"));
+                list.add(new Muscle("Chest"));
+                list.add(new Muscle("Legs"));
+                list.add(new Muscle( "Abs"));
                 break;
             case "Street Exercises":
-                list.add(new Exercise("Pull-Up", "Street", "Back"));
-                list.add(new Exercise("Dips", "Street", "Triceps"));
-                list.add(new Exercise("Running", "Street", "Legs"));
-                list.add(new Exercise("Burpees", "Street", "Full Body"));
+                list.add(new Muscle("Back"));
+                list.add(new Muscle("Triceps"));
+                list.add(new Muscle("Legs"));
+                list.add(new Muscle("Full Body"));
                 break;
             default:
                 returnToMainAcitivity(username);
                 break;
         }
+    }
+    private void startExerciseActivity(String muscle){
+        Intent intent=new Intent(this, ExercisesActivity.class);
+        intent.putExtra("muscle",muscle);
+        startActivity(intent);
     }
     private void returnToMainAcitivity(String username){
         Intent intent=new Intent(this,MainActivity.class);

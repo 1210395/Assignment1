@@ -12,4 +12,7 @@
     <string name="backMethodsAcitivty">Back</string>
     <string name="placeholderEditTextMethodsActivity">PlaceHolder</string>
     <string name="confirmButtonMainActivity">Confirm</string>
+    <string name="all_done">All Done?</string>
+    <string name="check_every_excercise_you_completed">Check every excercise you completed</string>
+    <string name="close_app">Close App</string>
 </resources>

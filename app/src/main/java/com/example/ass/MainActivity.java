@@ -3,19 +3,11 @@ package com.example.ass;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     String username;
@@ -33,9 +25,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "No user is logged in!!!", Toast.LENGTH_SHORT).show();
             returnToLoginAcitivity();
         }
-        findViewById(R.id.logoutButton).setOnClickListener(e->{
-            returnToLoginAcitivity();
-        });
+        findViewById(R.id.logoutButton).setOnClickListener(e-> returnToLoginAcitivity());
         ((TextView)findViewById(R.id.header)).setText(user.getFullName());
         findViewById(R.id.confirm_button).setOnClickListener(e->{
             RadioButton option1=findViewById(R.id.radioButtonOption1);
@@ -59,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
     private void startMethodsActivity(String option){
-        Intent intent=new Intent(this,MethodsActivity.class);
+        Intent intent=new Intent(this, MusclesActivity.class);
         intent.putExtra("option",option);
         intent.putExtra("username",username);
 

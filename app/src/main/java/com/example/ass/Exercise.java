@@ -1,6 +1,5 @@
 package com.example.ass;
 
-import android.widget.ImageView;
 
 public class Exercise {
     private String name;

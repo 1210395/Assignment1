@@ -31,8 +31,10 @@
         app:layout_constraintTop_toBottomOf="@+id/loginScreenLogo">
         <EditText
             android:id="@+id/usernameEditText"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
+            android:layout_gravity="center"
             android:layout_height="48dp"
+            android:autofillHints="123"
             android:textColor="@color/textPrimary"
             android:textColorHint="@color/textSecondary"
             android:hint="@string/loginActivityEditTextUsernameHint"
@@ -41,9 +43,11 @@
 
         <EditText
             android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
+            android:layout_gravity="center"
             android:layout_height="48dp"
             android:layout_marginTop="8dp"
+            android:autofillHints="123"
             android:textColor="@color/textPrimary"
             android:textColorHint="@color/textSecondary"
             android:hint="@string/loginActivityEditTextPasswordHint"
@@ -51,7 +55,8 @@
 
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:textColorHint="@color/textSecondary"
             android:textColor="@color/textPrimary"
